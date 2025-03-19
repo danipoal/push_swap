@@ -21,5 +21,8 @@ typedef struct s_node
 	struct	s_node	*next;
 } t_node;
 
+int *ft_atoi_ptr(char **av, int ac);
+t_node  *ft_create_node(int value, t_node *next);
+
 
 # endif

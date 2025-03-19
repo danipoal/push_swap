@@ -28,7 +28,9 @@ int	*parsing(int ac, char **av)
 void	init_stack(t_node **stk, int *nbrs, int size)
 {
 	if (size > 0)
-		(*stk)->value = nbrs[0];
+		*stk = ft_create_node(nbrs[0], NULL);
+	if (!*stk)
+		return ;
 }
 
 int	main(int argc, char **argv)
@@ -38,7 +40,12 @@ int	main(int argc, char **argv)
 
 	// Handle input
 	if (argc == 2) // Split para eliminar los espacios
-		write(1, *argv, 1);
+	{
+		n = ft_atoi_ptr(ft_split(argv[1], ' '), argc - 1);
+		init_stack(&stack_a, n, argc);
+		ft_putnbr_fd(stack_a->value, 1);
+		ft_putchar_fd('\n', 1);
+	}
 	else if (argc > 2)
 	{
 		write(1, "No", 2);
@@ -50,6 +57,7 @@ int	main(int argc, char **argv)
 		}
 		init_stack(&stack_a, n, argc);
 		ft_putnbr_fd(stack_a->value, 1);
+		ft_putchar_fd('\n', 1);
 	}
 
 	// Handle errors (suplicates, string, syntaxis, maximums....)

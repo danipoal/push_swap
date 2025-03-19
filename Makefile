@@ -15,7 +15,7 @@ NAME = push_swap
 
 # Comiling rules
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Libft files
 LIBFT_DIR = ./libft
@@ -23,7 +23,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 # SRC files
 SRC_DIR = src/
-SRCS = push_swap.c
+SRCS = push_swap.c node.c parsing.c
 HEADER = push_swap.h
 OBJS = $(addprefix $(SRC_DIR), $(SRCS:.c=.o))
 
