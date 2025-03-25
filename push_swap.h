@@ -21,8 +21,8 @@ typedef struct s_node
 	struct	s_node	*next;
 } t_node;
 
-int *ft_atoi_ptr(char **av, int ac);
+int	*ft_atoi_array(char **av, int ac, int type);
 t_node  *ft_create_node(int value, t_node *next);
-
+void    ft_print_nodes(t_node **stk);
 
 # endif

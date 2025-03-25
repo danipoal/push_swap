@@ -26,7 +26,8 @@ t_node  *ft_create_node(int value, t_node *next)
  * anadido estaba generado por malloc
  */
 
- void	ft_node_delone(t_node *node)
+void	ft_node_delone(t_node *node)
 {
 	free(node);
 }
+

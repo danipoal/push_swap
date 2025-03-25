@@ -23,7 +23,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 # SRC files
 SRC_DIR = src/
-SRCS = push_swap.c node.c parsing.c
+SRCS = push_swap.c node.c parsing.c temp_utils.c
 HEADER = push_swap.h
 OBJS = $(addprefix $(SRC_DIR), $(SRCS:.c=.o))
 
@@ -35,7 +35,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR) bonus
 
 $(NAME): $(OBJS) $(LIBFT) Makefile
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft
 
 clean: 
 	make -C $(LIBFT_DIR) clean
