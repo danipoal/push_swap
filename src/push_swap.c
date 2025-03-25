@@ -37,42 +37,57 @@ t_node	**init_stack(int *nbrs, int size)
 	return (stk);
 }
 
-int	main(int argc, char **argv)
+/*
+ * Function to handle the inputs
+ * 
+ */
+t_node  **ft_handle_input(int argc, char **argv)
 {
 	int	*n;
 	t_node	**stack_a;
+	char	**split_numbers;
 	int	size;
 
-	stack_a = NULL;
-	// Handle input
-	if (argc == 2) // Split para eliminar los espacios
+	if (argc <= 1)
+		return (NULL);
+	else if (argc == 2) // Split para eliminar los espacios
 	{
 		size = count_words(argv[1], ' ');
-		n = ft_atoi_array(ft_split(argv[1], ' '), size, 0); //TODO De momento no prestar atencion
-		stack_a = init_stack(n, size);
-		ft_putnbr_fd((*stack_a)->value, 1);
-		ft_putchar_fd('\n', 1);
+		split_numbers = ft_split(argv[1], ' ');
+		n = ft_atoi_array(split_numbers, size, 0);
+		ft_free_split(split_numbers); // Hay qye hacer free de todo el split por dentro
 	}
 	else if (argc > 2)
 	{
-		n = ft_atoi_array(argv, argc - 1, 1);
+		size = argc - 1;
+		n = ft_atoi_array(argv, size, 1);
 		if (!n)
-		{
-			write(1, "Error", 5);
-			return (1);
-		}
-		stack_a = init_stack(n, argc - 1);
-		if (!stack_a)
-			ft_putstr_fd("\nError al iniciar stack\n", 1);
-		ft_putnbr_fd((*stack_a)->value, 1);
-		ft_putchar_fd('\n', 1);
+			return (NULL);
 	}
-	else
+	stack_a = init_stack(n, size);
+	if (!stack_a)
+	{
+		ft_putstr_fd("\nError al iniciar stack\n", 1);	// Delete this lines to fit 25 lines
+		return (NULL);
+	}
+	free(n);
+	return (stack_a);
+}
+
+int	main(int argc, char **argv)
+{
+	t_node	**stack_a;
+
+	stack_a = NULL;
+	// Handle input
+	stack_a = ft_handle_input(argc, argv);
+	if (!stack_a)
 		return (1);
 	ft_print_nodes(stack_a);
 	// Handle errors (suplicates, string, syntaxis, maximums....)
 
 	// Initialize stack a puting the argv and b
 	// Check if is sorted, if not implement algorythm
+	ft_stkclear(stack_a);
 	return (0);
 }

@@ -24,5 +24,8 @@ typedef struct s_node
 int	*ft_atoi_array(char **av, int ac, int type);
 t_node  *ft_create_node(int value, t_node *next);
 void    ft_print_nodes(t_node **stk);
+void	ft_stkclear(t_node **lst);
+void    ft_free_split(char **array);
+
 
 # endif

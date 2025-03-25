@@ -31,3 +31,16 @@ void	ft_node_delone(t_node *node)
 	free(node);
 }
 
+void	ft_stkclear(t_node **lst)
+{
+	t_node	*tmp;
+
+	tmp = *lst;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_node_delone(*lst);
+		*lst = tmp;
+	}
+	free(lst);
+}
