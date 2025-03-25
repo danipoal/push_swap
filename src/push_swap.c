@@ -88,6 +88,9 @@ int	main(int argc, char **argv)
 
 	// Initialize stack a puting the argv and b
 	// Check if is sorted, if not implement algorythm
+	
+	ft_test_operations(stack_a);
+
 	ft_stkclear(stack_a);
 	return (0);
 }

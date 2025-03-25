@@ -20,6 +20,18 @@ t_node  *ft_create_node(int value, t_node *next)
     return (new_node);
 }
 
+t_node	*ft_nodelast(t_node *node)
+{
+	t_node	*tmp;
+
+	if (!node)
+		return (NULL);
+	tmp = node;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+
 /**
  * Free and delete a node
  * Solo hace falta anadir mas logica como una funcion del, si el contenido 

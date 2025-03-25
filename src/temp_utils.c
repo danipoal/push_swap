@@ -1,5 +1,12 @@
 #include "../push_swap.h"
 
+
+void    ft_test_operations(t_node **stk)
+{
+    ft_swap(stk);
+    ft_print_nodes(stk);
+}
+
 void    ft_print_nodes(t_node **stk)
 {
     t_node *temp = *stk;  // Usamos una copia del puntero
