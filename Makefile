@@ -23,7 +23,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 # SRC files
 SRC_DIR = src/
-SRCS = push_swap.c node.c parsing.c temp_utils.c utils.c operations.c
+SRCS = push_swap.c node.c parsing.c temp_utils.c utils.c operations.c stack.c
 HEADER = push_swap.h
 OBJS = $(addprefix $(SRC_DIR), $(SRCS:.c=.o))
 

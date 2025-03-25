@@ -78,7 +78,6 @@ int	main(int argc, char **argv)
 {
 	t_node	**stack_a;
 
-	stack_a = NULL;
 	// Handle input
 	stack_a = ft_handle_input(argc, argv);
 	if (!stack_a)
