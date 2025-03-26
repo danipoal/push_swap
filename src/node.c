@@ -20,6 +20,31 @@ t_node  *ft_create_node(int value, t_node *next)
     return (new_node);
 }
 
+/*
+ * Gets the second last element of a stack
+ * 
+*/
+t_node *ft_nodeprelast(t_node *node)
+{
+	t_node	*tmp;
+	t_node	*prev;
+
+	if (!node)
+		return (NULL);
+	tmp = node;
+	while (tmp->next)
+	{
+		if (tmp->next)
+			prev = tmp;
+		tmp = tmp->next;
+	}
+	return (prev);
+}
+
+/*
+ * Gets the last element of a stack
+ *
+*/
 t_node	*ft_nodelast(t_node *node)
 {
 	t_node	*tmp;

@@ -38,3 +38,29 @@ void    ft_push(t_node **stk_pushed, t_node **stk_get)
     *stk_pushed = tmp;
 }
 //TODO No se si es correcto pero de momento si se queda vacio el stack, se pone en NULL que es ell next
+
+
+/*
+ * Rotate the first node to the last and the last to the first
+ *
+ * We asign the last node (new first) nexts to the second item (*stk->next)
+ * We asign the first node (new last) as the next of the pre-last
+ * 
+ * We asign the new end a NULL next and the top of stack the last
+ */
+void    ft_rotate(t_node **stk)
+{
+    t_node  *last_node;
+    t_node  *pre_last;
+
+    if (!stk || !(*stk) || !((*stk)->next))
+        return;
+    pre_last = ft_nodeprelast(*stk);
+    last_node = pre_last->next;
+
+    last_node->next = (*stk)->next;
+    pre_last->next = *stk;
+
+    (*stk)->next = NULL;
+    *stk = last_node;
+}
