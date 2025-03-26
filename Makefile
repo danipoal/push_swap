@@ -13,7 +13,7 @@
 # Project name
 NAME = push_swap
 
-# Comiling rules
+# Compiling rules
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
@@ -31,20 +31,27 @@ OBJS = $(addprefix $(SRC_DIR), $(SRCS:.c=.o))
 all: $(NAME)
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
-	make -C $(LIBFT_DIR) bonus
+	@echo "[*] Compiling Libft..."
+	@make -C $(LIBFT_DIR) > /dev/null
+	@echo "[✓] Libft compiled."
 
 $(NAME): $(OBJS) $(LIBFT) Makefile
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft
+	@echo "[*] Compiling $(NAME)..."
+	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft > /dev/null
+	@echo "[✓] Compilation of $(NAME) completed."
 
 clean: 
-	make -C $(LIBFT_DIR) clean
-	rm -f $(OBJS)
+	@echo "[-] Cleaning object files..."
+	@make -C $(LIBFT_DIR) clean > /dev/null
+	@rm -f $(OBJS)
+	@echo "[✓] Cleanup done."
 
 f fclean: clean
-	make -C $(LIBFT_DIR) fclean
-	rm -f $(NAME)
+	@echo "[-] Removing executable..."
+	@make -C $(LIBFT_DIR) fclean > /dev/null
+	@rm -f $(NAME)
+	@echo "[✓] Executable removed."
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re f
