@@ -34,5 +34,6 @@ t_node *ft_nodeprelast(t_node *node);
 void    ft_swap(t_node **stk);
 void    ft_push(t_node **stk_pushed, t_node **stk_get);
 void    ft_rotate(t_node **stk);
+void    ft_reverse_rotate(t_node **stk);
 
 # endif

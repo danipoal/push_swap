@@ -2,7 +2,7 @@
 
 void    ft_test_operations(t_node **stk)
 {
-    ft_rotate(stk);
+    ft_reverse_rotate(stk);
     ft_print_nodes(stk);
 }
 

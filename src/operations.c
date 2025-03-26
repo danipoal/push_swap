@@ -41,26 +41,44 @@ void    ft_push(t_node **stk_pushed, t_node **stk_get)
 
 
 /*
- * Rotate the first node to the last and the last to the first
+ * Rotate the first node to the last
  *
- * We asign the last node (new first) nexts to the second item (*stk->next)
- * We asign the first node (new last) as the next of the pre-last
- * 
- * We asign the new end a NULL next and the top of stack the last
+ * Assign lastnode next the fist old node
+ * Asign the top of the stack, the nexts old first node
+ * Asig the new last node (old first) the next as NULL
  */
 void    ft_rotate(t_node **stk)
 {
     t_node  *last_node;
-    t_node  *pre_last;
+    t_node  *first_node;
 
     if (!stk || !(*stk) || !((*stk)->next))
         return;
-    pre_last = ft_nodeprelast(*stk);
-    last_node = pre_last->next;
 
-    last_node->next = (*stk)->next;
-    pre_last->next = *stk;
+    last_node = ft_nodelast(*stk);
+    last_node->next = *stk;
 
-    (*stk)->next = NULL;
+    first_node = *stk;
+    *stk = (*stk)->next;
+    first_node->next = NULL;
+}
+
+/*
+ * Rotate the last node to the first
+ *
+ * Asign the last node next the current first node
+ * Asig the prev last node as a NULL nexts
+ * Move the last node to 1st asigning it to the stk pointer
+ */
+void    ft_reverse_rotate(t_node **stk)
+{
+    t_node  *last_node;
+    t_node  *prelast_node;
+
+    prelast_node = ft_nodeprelast(*stk);
+    last_node = prelast_node->next;
+
+    last_node->next = *stk;
+    prelast_node->next = NULL;
     *stk = last_node;
 }
