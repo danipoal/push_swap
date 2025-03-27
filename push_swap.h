@@ -38,11 +38,24 @@ t_node	**init_stack(int *nbrs, int size);
 t_node  **ft_init_void_stack(int size);
 void	ft_stkclear(t_node **lst);
 
-// Operations
+// Operations plain
 void    ft_swap(t_node **stk);
 void    ft_push(t_node **stk_pushed, t_node **stk_get);
 void    ft_rotate(t_node **stk);
 void    ft_reverse_rotate(t_node **stk);
+
+// Wraper opperations
+void    ft_sa(t_node **stack_a);
+void    ft_sb(t_node **stack_b);
+void    ft_ss(t_node **stack_a, t_node **stack_b);
+void   ft_pa(t_node **stack_a, t_node **stack_b);
+void   ft_pb(t_node **stack_a, t_node **stack_b);
+void    ft_ra(t_node **stack_a);
+void    ft_rb(t_node **stack_b);
+void    ft_rr(t_node **stack_a, t_node **stack_b);
+void    ft_rra(t_node **stack_a);
+void    ft_rrb(t_node **stack_b);
+void    ft_rrr(t_node **stack_a, t_node **stack_b);
 
 void    ft_test_operations(t_node **stk);
 

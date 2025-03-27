@@ -2,13 +2,21 @@
 
 void    ft_test_operations(t_node **stk)
 {
-    ft_reverse_rotate(stk);
+    t_node  **stack_b;
+    stack_b = ft_init_void_stack(4);
+
+    //ft_reverse_rotate(stk);
+    ft_rra(stk);
+    //ft_pa(stk, stack_b);
+
     ft_print_nodes(stk);
+    ft_stkclear(stack_b);
 }
 
 void    ft_print_nodes(t_node **stk)
 {
     t_node *temp = *stk;  // Usamos una copia del puntero
+    ft_putchar_fd('\n', 1);
 
     while (temp)
     {
