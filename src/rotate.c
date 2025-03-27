@@ -9,18 +9,18 @@
 void    ft_ra(t_node **stack_a)
 {
     ft_rotate(stack_a);
-    ft_putstr_fd("ra", 1);
+    ft_putstr_fd("ra\n", 1);
 }
 
 void    ft_rb(t_node **stack_b)
 {
     ft_rotate(stack_b);
-    ft_putstr_fd("rb", 1);
+    ft_putstr_fd("rb\n", 1);
 }
 
 void    ft_rr(t_node **stack_a, t_node **stack_b)
 {
     ft_rotate(stack_a);
     ft_rotate(stack_b);
-    ft_putstr_fd("rr", 1);
+    ft_putstr_fd("rr\n", 1);
 }

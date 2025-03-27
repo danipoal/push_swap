@@ -25,6 +25,9 @@ typedef struct s_node
 int	*ft_atoi_array(char **av, int ac, int type);
 void    ft_free_split(char **array);
 
+// Utils
+int ft_issort(t_node **stk);
+
 // Node managing
 t_node  *ft_create_node(int value, t_node *next);
 
@@ -59,4 +62,6 @@ void    ft_rrr(t_node **stack_a, t_node **stack_b);
 
 void    ft_test_operations(t_node **stk);
 
+// Short cases
+void	ft_short_cases(t_node **stk, int size);
 # endif

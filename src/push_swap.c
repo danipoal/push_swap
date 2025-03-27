@@ -48,20 +48,10 @@ t_node  **ft_handle_input(int argc, char **argv, int *size)
 	return (stack_a);
 }
 
-/*
- * Redirect to the exact short cases
- *
- */
-void	ft_short_cases(t_node **stk, int size)
-{
-	if (!stk || !size)
-	{
-		return ;
-	}
-	
-}
+// Handle errors (suplicates, string, syntaxis, maximums....)
 
-
+// Initialize stack a puting the argv and b
+// Check if is sorted, if not implement algorythm
 int	main(int argc, char **argv)
 {
 	t_node	**stack_a;
@@ -72,15 +62,16 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (1);
 	if (size >= 3 || size <= 5)
+	{
 		ft_short_cases(stack_a, size);
+		ft_print_nodes(stack_a);
+		ft_stkclear(stack_a);
+		return (0);
+	}
 	ft_print_nodes(stack_a);
-	// Handle errors (suplicates, string, syntaxis, maximums....)
 
-	// Initialize stack a puting the argv and b
-	// Check if is sorted, if not implement algorythm
 	
 	ft_test_operations(stack_a);
-
 	ft_stkclear(stack_a);
 	return (0);
 }

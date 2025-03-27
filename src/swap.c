@@ -9,18 +9,18 @@
 void    ft_sa(t_node **stack_a)
 {
     ft_swap(stack_a);
-    ft_putstr_fd("sa", 1);
+    ft_putstr_fd("sa\n", 1);
 }
 
 void    ft_sb(t_node **stack_b)
 {
     ft_swap(stack_b);
-    ft_putstr_fd("sb", 1);
+    ft_putstr_fd("sb\n", 1);
 }
 
 void    ft_ss(t_node **stack_a, t_node **stack_b)
 {
     ft_swap(stack_a);
     ft_swap(stack_b);
-    ft_putstr_fd("ss", 1);
+    ft_putstr_fd("ss\n", 1);
 }

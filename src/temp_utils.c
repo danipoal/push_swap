@@ -13,11 +13,17 @@ void    ft_test_operations(t_node **stk)
     ft_stkclear(stack_b);
 }
 
+/*
+ * Printea todos los nodos de una lista para compribar su estado
+ * Usamos una copia del puntero para no editar 
+ *  los punteros originales
+ */
+
 void    ft_print_nodes(t_node **stk)
 {
-    t_node *temp = *stk;  // Usamos una copia del puntero
-    ft_putchar_fd('\n', 1);
+    t_node *temp = *stk;
 
+    ft_putchar_fd('\n', 1);
     while (temp)
     {
         ft_putnbr_fd(temp->value, 1);

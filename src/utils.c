@@ -16,3 +16,23 @@ void    ft_free_split(char **array)
     }
     free(array);
 }
+
+int ft_issort(t_node **stk)
+{
+    t_node  *tmp;
+
+    if (!stk || !*stk)
+        return (1);
+
+    tmp = *stk;
+    while (tmp->next)
+    {
+        if (tmp->value > tmp->next->value)
+        {
+            //ft_putstr_fd("NO Sort", 1);
+            return (0);
+        }
+        tmp = tmp->next; 
+    }
+    return (1);
+}
