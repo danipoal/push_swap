@@ -47,8 +47,9 @@ int ft_issort(t_node **stk, int sort_type)
 /*
  * Finds the lowest/biggest number in a stack
  * Target is the current low/big number
+ * @param type -> LOWEST/BIGGEST
  */
-t_node  *ft_lowest(t_node **stk)
+t_node  *ft_find_node(t_node **stk, int type)
 {
     t_node  *tmp;
     t_node  *target;
@@ -57,8 +58,16 @@ t_node  *ft_lowest(t_node **stk)
     target = tmp;
     while (tmp->next)
     {
-        if (target->value > tmp->next->value)
-            target = tmp->next;
+        if (type == LOW)
+        {
+            if (target->value > tmp->next->value)
+                target = tmp->next;
+        }
+        else if (type == BIG)
+        {
+            if (target->value < tmp->next->value)
+                target = tmp->next;            
+        }
         tmp = tmp->next;
     }
     return (target);

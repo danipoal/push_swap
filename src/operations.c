@@ -74,7 +74,9 @@ void    ft_reverse_rotate(t_node **stk)
 {
     t_node  *last_node;
     t_node  *prelast_node;
-
+    
+    if (!stk || !(*stk) || !((*stk)->next))
+        return;
     prelast_node = ft_nodeprelast(*stk);
     last_node = prelast_node->next;
 

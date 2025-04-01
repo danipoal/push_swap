@@ -14,8 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-#define ASC 1
-#define DESC 2
+# define ASC 1
+# define DESC 2
+# define LOW 1
+# define BIG 2
 
 typedef struct s_node 
 {
@@ -29,7 +31,7 @@ void    ft_free_split(char **array);
 
 // Utils
 int ft_issort(t_node **stk, int sort_type);
-t_node  *ft_lowest(t_node **stk);
+t_node  *ft_find_node(t_node **stk, int type);
 
 // Node managing
 t_node  *ft_create_node(int value, t_node *next);
@@ -67,4 +69,10 @@ void    ft_test_operations(t_node **stk);
 
 // Short cases
 void	ft_short_cases(t_node **stk, int size);
+
+// Radix
+void    ft_radix(t_node **stack_a, int size);
+int ft_count_binary_digits(int n);
+void	ft_putnbr_base(long nb, char *base);
+
 # endif

@@ -29,13 +29,13 @@ void    ft_sort_three(t_node **stack_a, int sort_type)
  * Finds the lowest, and then move it to B, then sort the rest
  * Rotate until the 1st element is the lowest, then push to b, sort and return
  */
-void    ft_case_four(t_node **stack_a)
+static void    ft_case_four(t_node **stack_a)
 {
     t_node  **stack_b;
     t_node *lowest;
 
     stack_b = ft_init_void_stack(1);
-    lowest = ft_lowest(stack_a);
+    lowest = ft_find_node(stack_a, LOW);
 
     while ((*stack_a)->value != lowest->value)
         ft_ra(stack_a);
@@ -49,17 +49,17 @@ void    ft_case_four(t_node **stack_a)
  * Sorts the stack if it has 5 elements
  * Duplicated code push the lowest
  */
-void    ft_case_five(t_node **stack_a)
+static void    ft_case_five(t_node **stack_a)
 {
     t_node  **stack_b;
     t_node *lowest;
 
     stack_b = ft_init_void_stack(2);
-    lowest = ft_lowest(stack_a);
+    lowest = ft_find_node(stack_a, LOW);
     while ((*stack_a)->value != lowest->value)
         ft_ra(stack_a);
     ft_pb(stack_a, stack_b);
-    lowest = ft_lowest(stack_a);
+    lowest = ft_find_node(stack_a, LOW);
     while ((*stack_a)->value != lowest->value)
         ft_ra(stack_a);
     ft_pb(stack_a, stack_b);

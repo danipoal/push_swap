@@ -61,17 +61,18 @@ int	main(int argc, char **argv)
 	stack_a = ft_handle_input(argc, argv, &size);
 	if (!stack_a)
 		return (1);
-	if (size >= 3 || size <= 5)
+	if (size >= 3 && size <= 5)
 	{
 		ft_short_cases(stack_a, size);
 		ft_print_nodes(stack_a);
 		ft_stkclear(stack_a);
 		return (0);
 	}
-	ft_print_nodes(stack_a);
+	//ft_print_nodes(stack_a);
 
 	
-	ft_test_operations(stack_a);
+	//ft_test_operations(stack_a);
+	ft_radix(stack_a, size);
 	ft_stkclear(stack_a);
 	return (0);
 }
