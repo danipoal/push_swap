@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+#define ASC 1
+#define DESC 2
 
 typedef struct s_node 
 {
@@ -26,7 +28,8 @@ int	*ft_atoi_array(char **av, int ac, int type);
 void    ft_free_split(char **array);
 
 // Utils
-int ft_issort(t_node **stk);
+int ft_issort(t_node **stk, int sort_type);
+t_node  *ft_lowest(t_node **stk);
 
 // Node managing
 t_node  *ft_create_node(int value, t_node *next);

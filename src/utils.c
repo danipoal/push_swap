@@ -17,7 +17,11 @@ void    ft_free_split(char **array)
     free(array);
 }
 
-int ft_issort(t_node **stk)
+/*
+ * Checks if  stack is sorted
+ * @returns 1 if sorted, 0 Not sorted
+ */
+int ft_issort(t_node **stk, int sort_type)
 {
     t_node  *tmp;
 
@@ -27,12 +31,35 @@ int ft_issort(t_node **stk)
     tmp = *stk;
     while (tmp->next)
     {
-        if (tmp->value > tmp->next->value)
+        if (sort_type == ASC){
+            if (tmp->value > tmp->next->value)
+                return (0);
+        }
+        else if (sort_type == DESC)
         {
-            //ft_putstr_fd("NO Sort", 1);
-            return (0);
+            if (tmp->value < tmp->next->value)
+                return (0);
         }
         tmp = tmp->next; 
     }
     return (1);
+}
+/*
+ * Finds the lowest/biggest number in a stack
+ * Target is the current low/big number
+ */
+t_node  *ft_lowest(t_node **stk)
+{
+    t_node  *tmp;
+    t_node  *target;
+    
+    tmp = *stk;
+    target = tmp;
+    while (tmp->next)
+    {
+        if (target->value > tmp->next->value)
+            target = tmp->next;
+        tmp = tmp->next;
+    }
+    return (target);
 }
