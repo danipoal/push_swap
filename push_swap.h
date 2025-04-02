@@ -22,15 +22,16 @@
 typedef struct s_node 
 {
 	int	value;
+	int index;
 	struct	s_node	*next;
 } t_node;
 
 // Input handleing
-int	*ft_atoi_array(char **av, int ac, int type);
+int		*ft_atoi_array(char **av, int ac, int type);
 void    ft_free_split(char **array);
 
 // Utils
-int ft_issort(t_node **stk, int sort_type);
+int 	ft_issort(t_node **stk, int sort_type);
 t_node  *ft_find_node(t_node **stk, int type);
 
 // Node managing
@@ -56,8 +57,8 @@ void    ft_reverse_rotate(t_node **stk);
 void    ft_sa(t_node **stack_a);
 void    ft_sb(t_node **stack_b);
 void    ft_ss(t_node **stack_a, t_node **stack_b);
-void   ft_pa(t_node **stack_a, t_node **stack_b);
-void   ft_pb(t_node **stack_a, t_node **stack_b);
+void	ft_pa(t_node **stack_a, t_node **stack_b);
+void	ft_pb(t_node **stack_a, t_node **stack_b);
 void    ft_ra(t_node **stack_a);
 void    ft_rb(t_node **stack_b);
 void    ft_rr(t_node **stack_a, t_node **stack_b);
@@ -72,7 +73,7 @@ void	ft_short_cases(t_node **stk, int size);
 
 // Radix
 void    ft_radix(t_node **stack_a, int size);
-int ft_count_binary_digits(int n);
+int		ft_count_binary_digits(int n);
 void	ft_putnbr_base(long nb, char *base);
 
 # endif
