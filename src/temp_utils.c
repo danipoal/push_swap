@@ -27,6 +27,8 @@ void    ft_print_nodes(t_node **stk)
     while (temp)
     {
         ft_putnbr_fd(temp->value, 1);
+        ft_putstr_fd(" Index: ", 1);
+        ft_putnbr_fd(temp->index, 1);
         ft_putchar_fd('\n', 1);
         temp = temp->next;
     }

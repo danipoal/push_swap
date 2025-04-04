@@ -13,6 +13,7 @@ t_node  *ft_create_node(int value, t_node *next)
     if (!new_node)
         return (NULL);
     new_node->value = value;
+	new_node->index = -1;	// Timsort update
     if (!next)
         new_node->next = NULL;
     else

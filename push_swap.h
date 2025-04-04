@@ -76,4 +76,8 @@ void    ft_radix(t_node **stack_a, int size);
 int		ft_count_binary_digits(int n);
 void	ft_putnbr_base(long nb, char *base);
 
+// Timsort & utils
+void    ft_timsort(t_node **stack_a, int size);
+void    ft_indexate(t_node **stack_a, int size);
+
 # endif

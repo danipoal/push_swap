@@ -72,7 +72,9 @@ int	main(int argc, char **argv)
 
 	
 	//ft_test_operations(stack_a);
-	ft_radix(stack_a, size);
+	//ft_radix(stack_a, size);
+
+	ft_timsort(stack_a, size);
 	ft_stkclear(stack_a);
 	return (0);
 }
