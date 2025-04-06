@@ -26,6 +26,22 @@ typedef struct s_node
 	struct	s_node	*next;
 } t_node;
 
+typedef struct s_moves
+{
+	int	pa;
+	int	pb;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+} t_moves;
+
+
 // Input handleing
 int		*ft_atoi_array(char **av, int ac, int type);
 void    ft_free_split(char **array);

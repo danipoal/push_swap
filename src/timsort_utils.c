@@ -12,16 +12,21 @@ t_node  *ft_find_nearest_node(t_node **stk, int value, int type)
 {
     t_node  *tmp;
     t_node  *current_closest;
-    int current_diff;
+    int     current_diff;
 
     tmp = *stk;
     current_diff = INT_MAX;         // Quizas no funciona para la diff entre INT_MIN y INT_MAX
-    while (tmp && type == BIG)      // Type quitar aqui
+    while (tmp)      // Type quitar aqui
     {
-        if (current_diff > tmp->value - value && value < tmp->value) // 2 comprobaciones, 1 que el diff sea menor, pero que el value siga siendo mayor (ASC-BIG)
+        if (type == BIG && current_diff > tmp->value - value && value < tmp->value) // 2 comprobaciones, 1 que el diff sea menor, pero que el value siga siendo mayor (ASC-BIG)
         {
             current_closest = tmp;
             current_diff = tmp->value - value;
+        }
+        else if (type == LOW && current_diff > value - tmp->value && value > tmp->value)
+        {
+            current_closest = tmp;
+            current_diff = value - tmp->value;
         }
         tmp = tmp->next;
     }
