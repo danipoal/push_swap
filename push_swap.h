@@ -26,6 +26,9 @@ typedef struct s_node
 	struct	s_node	*next;
 } t_node;
 
+/*
+ * Has the moves to be done and the node target to be moved
+ */
 typedef struct s_moves
 {
 	int	pa;
@@ -39,6 +42,7 @@ typedef struct s_moves
 	int	rra;
 	int	rrb;
 	int	rrr;
+	t_node	*target;
 } t_moves;
 
 
@@ -62,6 +66,7 @@ void    ft_print_nodes(t_node **stk);
 t_node	**init_stack(int *nbrs, int size);
 t_node  **ft_init_void_stack(int size);
 void	ft_stkclear(t_node **lst);
+int	ft_count_nodeposition(t_node **stk, t_node *node_to_search);
 
 // Operations plain
 void    ft_swap(t_node **stk);
@@ -95,5 +100,7 @@ void	ft_putnbr_base(long nb, char *base);
 // Timsort & utils
 void    ft_timsort(t_node **stack_a, int size);
 void    ft_indexate(t_node **stack_a, int size);
+t_node  *ft_find_nearest_node(t_node **stk, int value, int type);
+t_moves *ft_newmoves(t_node *target);
 
 # endif

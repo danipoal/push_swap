@@ -1,6 +1,27 @@
 #include "../push_swap.h"
 
 /*
+ * Counts and get the position of a node into a stack
+ *
+ */
+int	ft_count_nodeposition(t_node **stk, t_node *node_to_search)
+{
+	t_node	*tmp;
+	int	count;
+
+	count = 0;
+	tmp = *stk;
+	while (tmp != node_to_search)
+	{
+		tmp = tmp->next;
+		count++;
+		if (!tmp)
+			return (-1);
+	}
+	return (count);
+}
+
+/*
  * Initialization for the input stack
  * Initialize the a stack as a linked list
  * The function create_node() Asigns directly the next node if is started by
