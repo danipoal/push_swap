@@ -1,5 +1,38 @@
 #include "../push_swap.h"
 
+/*
+ * Count the total number of moves indistinct
+ * Used for comparing t_moves and get the best
+ */
+int ft_get_num_moves(t_moves *moves)    // TODO ERROR - Dont delete by reference
+{
+    int n;
+
+    n = 0;
+    while (moves->pa--)
+        n++;
+    while (moves->pb--)
+        n++;
+    while (moves->sa--)
+        n++;
+    while (moves->sb--)
+        n++;
+    while (moves->ss--)
+        n++;
+    while (moves->ra--)
+        n++;
+    while (moves->rb--)
+        n++;
+    while (moves->rr--)
+        n++;
+    while (moves->rra--)
+        n++;
+    while (moves->rrb--)
+        n++;   
+    while (moves->rrr--)
+        n++;   
+    return (n);
+}
 
 /*
  * Instanziate a new t_moves struct

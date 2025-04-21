@@ -102,6 +102,8 @@ void    ft_timsort(t_node **stack_a, int size);
 void    ft_indexate(t_node **stack_a, int size);
 t_node  *ft_find_nearest_node(t_node **stk, int value, int type);
 t_moves *ft_newmoves(t_node *target);
+t_moves    *ft_calculate_moves(t_node **stack_a, t_node **stack_b, t_node *target);
 void    ft_execute_moves(t_node **stack_a, t_node **stack_b, t_moves *moves);
+int ft_get_num_moves(t_moves *moves);
 
 # endif
