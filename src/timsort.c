@@ -18,11 +18,22 @@ t_moves    *ft_calculate_moves(t_node **stack_a, t_node **stack_b)
 
     // First calculate moves only for one node, then try to do it for all
     target = *stack_a;
-    moves = ft_newmoves(target); 
-    tmp = ft_find_nearest_node(stack_b, target->value, LOW);
-    count = ft_count_nodeposition(stack_b, tmp);    // These are the rotations of b to get the closest at the TOP
+    moves = ft_newmoves(target);
+
+
+    // Check if its the new min, new max or a normal node
+    if (target->value < ft_find_node(stack_b, LOW)->value || target->value > ft_find_node(stack_b, BIG)->value)     // If is the new lowest
+    {
+        ft_putstr_fd("MIN/max\n", 1);
+    }
+    else
+    {
+        tmp = ft_find_nearest_node(stack_b, target->value, LOW);        // Search its closest low node into the next stack
+        count = ft_count_nodeposition(stack_b, tmp);    // These are the rotations of b to get the closest at the TOP
+    }
     
-    moves->pa = count;
+    moves->rb = count;
+    moves->pb = 1;
     return (moves);
 }
 
@@ -33,7 +44,10 @@ t_moves    *ft_calculate_moves(t_node **stack_a, t_node **stack_b)
  */
 void    ft_timsort_round(t_node **stack_a, t_node **stack_b)
 {
-    ft_calculate_moves(stack_a, stack_b);
+    t_moves *moves;
+
+    moves = ft_calculate_moves(stack_a, stack_b);
+    ft_execute_moves(stack_a, stack_b, moves);
 
     // And execute moves
 }
@@ -58,6 +72,6 @@ void    ft_timsort(t_node **stack_a, int size)
     //      AQUI DEBERIA IR EL ROUND
     // }
     
-        ft_timsort_round(stack_a, stack_b);
+    ft_timsort_round(stack_a, stack_b);
 
 }
