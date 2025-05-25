@@ -67,6 +67,7 @@ t_node	**init_stack(int *nbrs, int size);
 t_node  **ft_init_void_stack(int size);
 void	ft_stkclear(t_node **lst);
 int	ft_count_nodeposition(t_node **stk, t_node *node_to_search);
+// int	ft_stack_size(t_node **stk);
 
 // Operations plain
 void    ft_swap(t_node **stk);
@@ -100,6 +101,7 @@ void	ft_putnbr_base(long nb, char *base);
 // Timsort & utils
 void    ft_timsort(t_node **stack_a, int size);
 void    ft_indexate(t_node **stack_a, int size);
+t_moves    *ft_order_sorted_stack(t_node **stk, int type);
 t_node  *ft_find_nearest_node(t_node **stk, int value, int type);
 t_moves *ft_newmoves(t_node *target);
 t_moves    *ft_calculate_moves(t_node **stack_a, t_node **stack_b, t_node *target);

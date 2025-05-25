@@ -1,6 +1,25 @@
 #include "../push_swap.h"
 
 /*
+ * Gets the size of the stack
+ *
+
+int	ft_stack_size(t_node **stk)
+{
+	int	i;
+	t_node *tmp;
+
+	tmp = *stk;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
+} */
+
+/*
  * Counts and get the position of a node into a stack
  *
  */

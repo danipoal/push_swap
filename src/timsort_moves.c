@@ -6,30 +6,32 @@
  */
 int ft_get_num_moves(t_moves *moves)    // TODO ERROR - Dont delete by reference
 {
+    t_moves temp_moves;
     int n;
 
+    temp_moves = *moves;
     n = 0;
-    while (moves->pa--)
+    while (temp_moves.pa--)
         n++;
-    while (moves->pb--)
+    while (temp_moves.pb--)
         n++;
-    while (moves->sa--)
+    while (temp_moves.sa--)
         n++;
-    while (moves->sb--)
+    while (temp_moves.sb--)
         n++;
-    while (moves->ss--)
+    while (temp_moves.ss--)
         n++;
-    while (moves->ra--)
+    while (temp_moves.ra--)
         n++;
-    while (moves->rb--)
+    while (temp_moves.rb--)
         n++;
-    while (moves->rr--)
+    while (temp_moves.rr--)
         n++;
-    while (moves->rra--)
+    while (temp_moves.rra--)
         n++;
-    while (moves->rrb--)
+    while (temp_moves.rrb--)
         n++;   
-    while (moves->rrr--)
+    while (temp_moves.rrr--)
         n++;   
     return (n);
 }
