@@ -12,6 +12,30 @@
 
 #include "../push_swap.h"
 
+// Handle errors (suplicates, string, syntaxis, maximums....)
+void	ft_check_input(int *numbers, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (numbers[i] == numbers[j])
+			{
+				ft_putstr_fd("Numbers repeated :",1);
+				ft_putnbr_fd(numbers[i], 1);
+				exit(1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 /*
  * Function to handle the inputs
  * 
@@ -38,6 +62,7 @@ t_node  **ft_handle_input(int argc, char **argv, int *size)
 		if (!n)
 			return (NULL);
 	}
+	ft_check_input(n, *size);
 	stack_a = init_stack(n, *size);
 	if (!stack_a)
 	{
@@ -48,16 +73,11 @@ t_node  **ft_handle_input(int argc, char **argv, int *size)
 	return (stack_a);
 }
 
-// Handle errors (suplicates, string, syntaxis, maximums....)
-
-// Initialize stack a puting the argv and b
-// Check if is sorted, if not implement algorythm
 int	main(int argc, char **argv)
 {
 	t_node	**stack_a;
 	int	size;
 
-	// Handle input
 	stack_a = ft_handle_input(argc, argv, &size);
 	if (!stack_a)
 		return (1);
@@ -68,12 +88,7 @@ int	main(int argc, char **argv)
 		ft_stkclear(stack_a);
 		return (0);
 	}
-	//ft_print_nodes(stack_a);
-
-	
-	//ft_test_operations(stack_a);
 	//ft_radix(stack_a, size);
-
 	ft_timsort(stack_a, size);
 	if (!ft_issort(stack_a, ASC)){		// Checker integrated
 		ft_putstr_fd("ERROR SORT", 1);

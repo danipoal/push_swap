@@ -68,7 +68,7 @@ void    ft_timsort_round(t_node **stack_a, t_node **stack_b)
     moves = ft_compare_moves(stack_a, stack_b);
     ft_debug(moves->target, 6);
     ft_execute_moves(stack_a, stack_b, moves);
-    ft_print_nodes(stack_b);
+    // ft_print_nodes(stack_b);
 }
 
 
@@ -82,6 +82,7 @@ void    ft_timsort(t_node **stack_a, int size)
     t_moves *last_moves;
 
     ft_indexate(stack_a, size);
+    // ft_find_node(stack_a, LOW)->index = 0;       // Usar si indexate da problemas, para que setee al menos el 0 para el movimiento final
     stack_b = ft_init_void_stack(size);
     
     ft_pb(stack_a, stack_b);
