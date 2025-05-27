@@ -1,0 +1,39 @@
+name: Build and Test C Program with Multiple Runs
+
+on: [push, pull_request]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Build with make
+      run: make re
+
+    - name: Run multiple test combinations and check return codes
+      run: |
+        set -e  # salir si hay un error (opcional, pero manejamos manualmente)
+        combos=(
+          "1 2 3 4 5 6 34 43 11 9 48487 4878 4677 748654 846465 14845 188 56565 44 589 6523 141"
+          "5 10 15 20 31 1 594 2 5499 6 22 23 21"
+          "100 200 300"
+          "7 8 9 10 11 12 13 1"
+        )
+        
+        for args in "${combos[@]}"; do
+          echo "Running ./a.out $args"
+          ./a.out $args
+          code=$?
+          if [ $code -eq 0 ]; then
+            echo "✅ Success with args: $args"
+          elif [ $code -eq 1 ]; then
+            echo "❌ Failure with args: $args"
+            exit 1
+          else
+            echo "⚠️ Unexpected return code $code with args: $args"
+            exit 1
+          fi
+        done
