@@ -60,6 +60,8 @@ t_node  *ft_create_node(int value, t_node *next);
 t_node *ft_nodeprelast(t_node *node);
 t_node	*ft_nodelast(t_node *node);
 void    ft_print_nodes(t_node **stk);
+void    debugger(void);
+void    ft_debug(t_node *target, int index);
 
 
 // Stack

@@ -12,28 +12,18 @@
 t_moves    *ft_calculate_moves(t_node **stack_a, t_node **stack_b, t_node *target)
 {
     t_moves *moves;
-    //t_node  *target;
     t_node  *tmp;
-    int count;
+    int     count;
 
-    count = 0;
-
-
-    // First calculate moves only for one node, then try to do it for all
-    //target = *stack_a;
-    moves = ft_newmoves(target);
-
-
-    // Check if its the new min, new max or a normal node
-    if (target->value < ft_find_node(stack_b, LOW)->value || target->value > ft_find_node(stack_b, BIG)->value)     // If is the new lowest
-    {
-        // ft_putstr_fd("MIN/max\n", 1);
-        tmp = ft_find_nearest_node(stack_b, target->value, LOW);        // Search its closest low node into the next stack
+    count = 0;                      // First calculate moves only for one node, then try to do it for all
+    moves = ft_newmoves(target);    // Check if its the new min, new max or a normal node
+    if (target->value < ft_find_node(stack_b, LOW)->value || target->value > ft_find_node(stack_b, BIG)->value)
+    {                               // If is the new lowest
+        tmp = ft_find_node(stack_b, BIG); 
         count = ft_count_nodeposition(stack_b, tmp);
     }
     else
     {
-        //tmp = ft_find_node(stack_b, BIG);               // Search its closest low node into the next stack
         tmp = ft_find_nearest_node(stack_b, target->value, LOW);
         count = ft_count_nodeposition(stack_b, tmp);    // These are the rotations of b to get the closest at the TOP
     }
@@ -59,13 +49,8 @@ t_moves    *ft_compare_moves(t_node **stack_a, t_node **stack_b)
     while (tmp_a)
     {
         new_moves = ft_calculate_moves(stack_a, stack_b, tmp_a);
-        if (ft_get_num_moves(new_moves) < ft_get_num_moves(best_moves))     //TODO ERROR - When we get the num moves, se restan para contar... Se joden los moves
+        if (ft_get_num_moves(new_moves) < ft_get_num_moves(best_moves))
             best_moves = new_moves;
-
-        // int a = ft_get_num_moves(new_moves);    // to remove        
-        // ft_putnbr_fd( a, 1);                    // to remove
-        // ft_putchar_fd('\n', 1);
-        // a++;
         tmp_a = tmp_a->next;
     }
     return (best_moves);
@@ -81,9 +66,9 @@ void    ft_timsort_round(t_node **stack_a, t_node **stack_b)
     t_moves *moves;
 
     moves = ft_compare_moves(stack_a, stack_b);
+    ft_debug(moves->target, 6);
     ft_execute_moves(stack_a, stack_b, moves);
-
-    // And execute moves
+    ft_print_nodes(stack_b);
 }
 
 
@@ -103,6 +88,7 @@ void    ft_timsort(t_node **stack_a, int size)
     ft_pb(stack_a, stack_b);
     while (/*!ft_issort(stack_b, DESC) ||*/ *stack_a)      // Por alguna razon aqui no entra
         ft_timsort_round(stack_a, stack_b);
+    debugger();
     last_moves =  ft_order_sorted_stack(stack_b, DESC); // Estan ordenados pero no totalmente en orden, el index 0 no esta el ultimo ni el index maximo esta el primero...
     ft_execute_moves(stack_a, stack_b, last_moves);
    

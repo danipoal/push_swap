@@ -35,6 +35,16 @@ void    ft_print_nodes(t_node **stk)
     ft_putchar_fd('\n', 1);
 }
 
+void    debugger(void) 
+{
+    return ;
+}
+
+void    ft_debug(t_node *target, int index)
+{
+    if (target->index == index)
+        debugger();
+}
 /*
     push test
 void ft_test_operations(t_node **stk)
