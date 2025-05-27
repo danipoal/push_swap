@@ -75,6 +75,11 @@ int	main(int argc, char **argv)
 	//ft_radix(stack_a, size);
 
 	ft_timsort(stack_a, size);
+	if (!ft_issort(stack_a, ASC)){		// Checker integrated
+		ft_putstr_fd("ERROR SORT", 1);
+		ft_stkclear(stack_a);
+		return (1);
+	}
 	ft_stkclear(stack_a);
 	return (0);
 }
