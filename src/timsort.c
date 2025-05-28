@@ -66,7 +66,8 @@ void    ft_timsort_round(t_node **stack_a, t_node **stack_b)
     t_moves *moves;
 
     moves = ft_compare_moves(stack_a, stack_b);
-    ft_debug(moves->target, 6);
+    // ft_debug(moves->target, 6);
+    
     ft_execute_moves(stack_a, stack_b, moves);
     // ft_print_nodes(stack_b);
 }
@@ -89,16 +90,6 @@ void    ft_timsort(t_node **stack_a, int size)
     ft_pb(stack_a, stack_b);
     while (/*!ft_issort(stack_b, DESC) ||*/ *stack_a)      // Por alguna razon aqui no entra
         ft_timsort_round(stack_a, stack_b);
-    debugger();
     last_moves =  ft_order_sorted_stack(stack_b, DESC); // Estan ordenados pero no totalmente en orden, el index 0 no esta el ultimo ni el index maximo esta el primero...
     ft_execute_moves(stack_a, stack_b, last_moves);
-   
-   
-    ft_putstr_fd("Stack B: \n", 1);
-    ft_print_nodes(stack_b);
-    
-    ft_putstr_fd("Stack A: \n", 1);
-    ft_print_nodes(stack_a);
-
-
 }
