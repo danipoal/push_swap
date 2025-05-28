@@ -53,6 +53,7 @@ void    ft_free_split(char **array);
 // Utils
 int 	ft_issort(t_node **stk, int sort_type);
 t_node  *ft_find_node(t_node **stk, int type);
+void    ft_free_moves(t_moves *moves);
 
 // Node managing
 t_node  *ft_create_node(int value, t_node *next);

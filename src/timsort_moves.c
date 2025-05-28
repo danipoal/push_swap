@@ -47,6 +47,17 @@ t_moves *ft_newmoves(t_node *target)
     new_tmoves = (t_moves*) malloc (sizeof(t_moves));
     if (!new_tmoves)
         return (NULL);
+    new_tmoves->sa = 0;
+    new_tmoves->sb = 0;
+    new_tmoves->ra = 0;
+    new_tmoves->rb = 0;
+    new_tmoves->rra = 0;
+    new_tmoves->rrb = 0;
+    new_tmoves->ss = 0;
+    new_tmoves->rr = 0;
+    new_tmoves->rrr = 0;
+    new_tmoves->pa = 0;
+    new_tmoves->pb = 0;
     new_tmoves->target = target;
     return (new_tmoves);
 }

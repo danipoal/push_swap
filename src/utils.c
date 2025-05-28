@@ -1,10 +1,15 @@
 #include "../push_swap.h"
 
+void    ft_free_moves(t_moves *moves)
+{
+    if (moves)
+        free(moves);
+}
+
 /*
  * Freezea un stack con los nodos por posicion de memoria
  * No busca el next en ningun momento
  */
-
 void    ft_free_split(char **array)
 {
     int i = 0;
