@@ -1,5 +1,11 @@
 #include "../push_swap.h"
 
+void    ft_error(void)
+{
+    ft_putstr_fd("Error\n", 1);
+    exit(0);
+}
+
 void    ft_free_moves(t_moves *moves)
 {
     if (moves)

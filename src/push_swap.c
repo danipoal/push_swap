@@ -25,11 +25,7 @@ void	ft_check_input(int *numbers, int size)
 		while (j < size)
 		{
 			if (numbers[i] == numbers[j])
-			{
-				ft_putstr_fd("Numbers repeated :",1);
-				ft_putnbr_fd(numbers[i], 1);
-				exit(1);
-			}
+				ft_error();
 			j++;
 		}
 		i++;
@@ -84,7 +80,7 @@ int	main(int argc, char **argv)
 	if (size >= 3 && size <= 5)
 	{
 		ft_short_cases(stack_a, size);
-		ft_print_nodes(stack_a);
+		// ft_print_nodes(stack_a);
 		ft_stkclear(stack_a);
 		return (0);
 	}

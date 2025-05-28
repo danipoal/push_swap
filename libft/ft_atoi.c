@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+static void    ft_error_atoi(void)
+{
+    ft_putstr_fd("Error\n", 1);
+    exit(1);
+}
+
 /*
  * Converts a string to an integer. Converts the initial portion of the string 
  * pointed to by nptr to int.
@@ -42,7 +48,7 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] != '\0')
 	{
 		if (!ft_isdigit(nptr[i]))
-			return (total * sign);
+			ft_error_atoi();
 		total = total * 10 + nptr[i] - '0';
 		i++;
 	}
