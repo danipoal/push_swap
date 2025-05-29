@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 19:36:02 by danalvar          #+#    #+#             */
+/*   Updated: 2025/03/19 17:15:03 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /**
@@ -5,27 +17,27 @@
  * 
  */
 
-t_node  *ft_create_node(int value, t_node *next)
+t_node	*ft_create_node(int value, t_node *next)
 {
-    t_node  *new_node;
+	t_node	*new_node;
 
-    new_node = (t_node*) malloc(sizeof(t_node));
-    if (!new_node)
-        return (NULL);
-    new_node->value = value;
-	new_node->index = -1;	// Timsort update
-    if (!next)
-        new_node->next = NULL;
-    else
-        new_node->next = next;
-    return (new_node);
+	new_node = (t_node *) malloc(sizeof (t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->index = -1;// Timsort update
+	if (!next)
+		new_node->next = NULL;
+	else
+		new_node->next = next;
+	return (new_node);
 }
 
 /*
  * Gets the second last element of a stack
  * 
 */
-t_node *ft_nodeprelast(t_node *node)
+t_node	*ft_nodeprelast(t_node *node)
 {
 	t_node	*tmp;
 	t_node	*prev;

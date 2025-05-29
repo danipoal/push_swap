@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static void    ft_error_atoi(void)
+static void	ft_error_atoi(void)
 {
-    ft_putstr_fd("Error\n", 1);
-    exit(1);
+	ft_putstr_fd("Error\n", 1);
+	exit(1);
 }
 
 /*

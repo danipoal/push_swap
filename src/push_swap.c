@@ -36,9 +36,9 @@ void	ft_check_input(int *numbers, int size)
  * Function to handle the inputs
  * 
  */
-t_node  **ft_handle_input(int argc, char **argv, int *size)
+t_node	**ft_handle_input(int argc, char **argv, int *size)
 {
-	int	*n;
+	int		*n;
 	t_node	**stack_a;
 	char	**split_numbers;
 
@@ -62,7 +62,7 @@ t_node  **ft_handle_input(int argc, char **argv, int *size)
 	stack_a = init_stack(n, *size);
 	if (!stack_a)
 	{
-		ft_putstr_fd("\nError al iniciar stack\n", 1);	// Delete this lines to fit 25 lines
+		ft_putstr_fd("\nError al iniciar stack\n", 1);// Delete this lines to fit 25 lines
 		return (NULL);
 	}
 	free(n);
@@ -72,7 +72,7 @@ t_node  **ft_handle_input(int argc, char **argv, int *size)
 int	main(int argc, char **argv)
 {
 	t_node	**stack_a;
-	int	size;
+	int		size;
 
 	stack_a = ft_handle_input(argc, argv, &size);
 	if (!stack_a)
@@ -84,9 +84,9 @@ int	main(int argc, char **argv)
 		ft_stkclear(stack_a);
 		return (0);
 	}
-	//ft_radix(stack_a, size);
-	ft_timsort(stack_a, size);
-	if (!ft_issort(stack_a, ASC)){		// Checker integrated
+	ft_timsort(stack_a, size);//ft_radix(stack_a, size);
+	if (!ft_issort(stack_a, ASC))
+	{// Checker integrated
 		ft_putstr_fd("ERROR SORT", 1);
 		ft_stkclear(stack_a);
 		return (1);

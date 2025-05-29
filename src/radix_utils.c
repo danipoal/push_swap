@@ -1,23 +1,23 @@
 #include "../push_swap.h"
 
-int ft_count_binary_digits(int num)
+int	ft_count_binary_digits(int num)
 {
-    int count;
+	int				count;
 	unsigned int	n;
 
 	if (num >= 0)
 		n = (unsigned int)num;
 	else
 		n = (unsigned int) -num;
-    if (n == 0)
-        return (1);
-    count = 0;
-    while ((unsigned int)n > 0)
-    {
-        count++;
-        n >>= 1; // Desplaza bits a la derecha (divide entre 2)
-    }
-    return (count + 1);
+	if (n == 0)
+		return (1);
+	count = 0;
+	while ((unsigned int)n > 0)
+	{
+		count++;
+		n >>= 1; // Desplaza bits a la derecha (divide entre 2)
+	}
+	return (count + 1);
 }
 
 void	ft_putnbr_base(long nb, char *base)

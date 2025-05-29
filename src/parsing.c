@@ -9,7 +9,7 @@ int	*ft_atoi_array(char **av, int ac, int type)
 {
 	int	*numbers;
 	int	i;
-	
+
 	i = 0;
 	numbers = (int *) malloc(ac * sizeof(int));
 	if (!numbers)

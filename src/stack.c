@@ -26,7 +26,7 @@ int	ft_stack_size(t_node **stk)
 int	ft_count_nodeposition(t_node **stk, t_node *node_to_search)
 {
 	t_node	*tmp;
-	int	count;
+	int		count;
 
 	count = 0;
 	tmp = *stk;
@@ -50,10 +50,10 @@ t_node	**init_stack(int *nbrs, int size)
 {
 	t_node	**stk;
 
-	stk = (t_node**) malloc(size * sizeof(t_node*));  
+	stk = (t_node **) malloc(size * sizeof(t_node *));
 	if (!stk)
 		return (NULL);
-	size = size - 1;	//Initialize the max value -1 because we start in 0
+	size = size - 1; //Initialize the max value -1 because we start in 0
 	stk[size] = ft_create_node(nbrs[size], NULL);
 	if (!stk[size])
 		return (NULL);
@@ -72,19 +72,19 @@ t_node	**init_stack(int *nbrs, int size)
  * Initialize an empty stack with NULL initialized values
  * Same size as the original imput
  */
-t_node  **ft_init_void_stack(int size)
+t_node	**ft_init_void_stack(int size)
 {
 	t_node	**stk;
-    int i;
+	int		i;
 
-	stk = (t_node**) malloc(size * sizeof(t_node*));  
+	stk = (t_node **) malloc(size * sizeof(t_node *));
 	if (!stk)
 		return (NULL);
-    i = 0;
-    while (i < size)
-    {
-        stk[i] = NULL;
-        i++;
-    }
+	i = 0;
+	while (i < size)
+	{
+		stk[i] = NULL;
+		i++;
+	}
 	return (stk);
 }

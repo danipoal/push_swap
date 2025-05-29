@@ -1,31 +1,31 @@
 #include "../push_swap.h"
 
-void    ft_error(void)
+void	ft_error(void)
 {
-    ft_putstr_fd("Error\n", 1);
-    exit(0);
+	ft_putstr_fd("Error\n", 1);
+	exit(0);
 }
 
-void    ft_free_moves(t_moves *moves)
+void	ft_free_moves(t_moves *moves)
 {
-    if (moves)
-        free(moves);
+	if (moves)
+		free(moves);
 }
 
 /*
  * Freezea un stack con los nodos por posicion de memoria
  * No busca el next en ningun momento
  */
-void    ft_free_split(char **array)
+void	ft_free_split(char **array)
 {
-    int i = 0;
+	int i = 0;
 
-    while (array[i])
-    {
-        free(array[i]);
-        i++;
-    }
-    free(array);
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
 /*
@@ -34,26 +34,26 @@ void    ft_free_split(char **array)
  */
 int ft_issort(t_node **stk, int sort_type)
 {
-    t_node  *tmp;
+	t_node  *tmp;
 
-    if (!stk || !*stk)
-        return (1);
+	if (!stk || !*stk)
+		return (1);
 
-    tmp = *stk;
-    while (tmp->next)
-    {
-        if (sort_type == ASC){
-            if (tmp->value > tmp->next->value)
-                return (0);
-        }
-        else if (sort_type == DESC)
-        {
-            if (tmp->value < tmp->next->value)
-                return (0);
-        }
-        tmp = tmp->next; 
-    }
-    return (1);
+	tmp = *stk;
+	while (tmp->next)
+	{
+		if (sort_type == ASC){
+			if (tmp->value > tmp->next->value)
+				return (0);
+		}
+		else if (sort_type == DESC)
+		{
+			if (tmp->value < tmp->next->value)
+				return (0);
+		}
+		tmp = tmp->next; 
+	}
+	return (1);
 }
 /*
  * Finds the lowest/biggest number in a stack
@@ -62,24 +62,24 @@ int ft_issort(t_node **stk, int sort_type)
  */
 t_node  *ft_find_node(t_node **stk, int type)
 {
-    t_node  *tmp;
-    t_node  *target;
-    
-    tmp = *stk;
-    target = tmp;
-    while (tmp->next)
-    {
-        if (type == LOW)
-        {
-            if (target->value > tmp->next->value)
-                target = tmp->next;
-        }
-        else if (type == BIG)
-        {
-            if (target->value < tmp->next->value)
-                target = tmp->next;            
-        }
-        tmp = tmp->next;
-    }
-    return (target);
+	t_node  *tmp;
+	t_node  *target;
+	
+	tmp = *stk;
+	target = tmp;
+	while (tmp->next)
+	{
+		if (type == LOW)
+		{
+			if (target->value > tmp->next->value)
+				target = tmp->next;
+		}
+		else if (type == BIG)
+		{
+			if (target->value < tmp->next->value)
+				target = tmp->next;			
+		}
+		tmp = tmp->next;
+	}
+	return (target);
 }
