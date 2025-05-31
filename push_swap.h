@@ -48,6 +48,8 @@ typedef struct s_moves
 // Input handleing
 int		*ft_atoi_array(char **av, int ac, int type);
 void	ft_free_split(char **array);
+int		*ft_handle_args(int	argc, char **argv, int *size);
+
 
 // Utils
 int		ft_issort(t_node **stk, int sort_type);

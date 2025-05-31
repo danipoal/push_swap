@@ -13,42 +13,6 @@
 #include "../push_swap.h"
 
 /*
- * Count the total number of moves indistinct
- * Used for comparing t_moves and get the best
- */
-int	ft_get_num_moves(t_moves *moves)
-{
-	t_moves	temp_moves;
-	int		n;
-
-	temp_moves = *moves;
-	n = 0;
-	while (temp_moves.pa-- > 0)
-		n++;
-	while (temp_moves.pb-- > 0)
-		n++;
-	while (temp_moves.sa-- > 0)
-		n++;
-	while (temp_moves.sb-- > 0)
-		n++;
-	while (temp_moves.ss-- > 0)
-		n++;
-	while (temp_moves.ra-- > 0)
-		n++;
-	while (temp_moves.rb-- > 0)
-		n++;
-	while (temp_moves.rr-- > 0)
-		n++;
-	while (temp_moves.rra-- > 0)
-		n++;
-	while (temp_moves.rrb-- > 0)
-		n++;
-	while (temp_moves.rrr-- > 0)
-		n++;
-	return (n);
-}
-
-/*
  * Instanziate a new t_moves struct
  * @param target - The node set as the target to be pushed
  */

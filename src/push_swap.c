@@ -34,6 +34,30 @@ void	ft_check_input(int *numbers, int size)
 	}
 }
 
+int	*ft_handle_args(int	argc, char **argv, int *size)
+{
+	char	**split_numbers;
+	int		*n;
+
+	n = NULL;
+	if (argc == 2)
+	{
+		*size = count_words(argv[1], ' ');
+		split_numbers = ft_split(argv[1], ' ');
+		n = ft_atoi_array(split_numbers, *size, 0);
+		ft_free_split(split_numbers);
+		return (n);
+	}
+	else if (argc > 2)
+	{
+		*size = argc - 1;
+		n = ft_atoi_array(argv, *size, 1);
+		if (!n)
+			return (NULL);
+		return (n);
+	}
+	return (NULL);
+}
 /*
  * Function to handle the inputs
  * 
@@ -42,25 +66,11 @@ t_node	**ft_handle_input(int argc, char **argv, int *size)
 {
 	int		*n;
 	t_node	**stack_a;
-	char	**split_numbers;
 
-	n = NULL;
 	if (argc <= 1)
 		return (NULL);
-	else if (argc == 2)
-	{
-		*size = count_words(argv[1], ' ');
-		split_numbers = ft_split(argv[1], ' ');
-		n = ft_atoi_array(split_numbers, *size, 0);
-		ft_free_split(split_numbers);
-	}
-	else if (argc > 2)
-	{
-		*size = argc - 1;
-		n = ft_atoi_array(argv, *size, 1);
-		if (!n)
-			return (NULL);
-	}
+	else
+		n = ft_handle_args(argc, argv, size);
 	ft_check_input(n, *size);
 	stack_a = init_stack(n, *size);
 	if (!stack_a)
