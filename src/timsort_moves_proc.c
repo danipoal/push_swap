@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 14:29:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/05/31 16:17:44 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:28:37 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static int	*ft_get_moves_rotates(t_moves *temp_moves, int *n)
 int	ft_get_num_moves(t_moves *moves)
 {
 	t_moves	temp_moves;
+	int		n;
 
 	temp_moves = *moves;
 	n = 0;

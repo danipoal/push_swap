@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   timsort_moves.c                                    :+:      :+:    :+:   */
+/*   timsort_moves_exec.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 14:29:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/05/31 14:29:21 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:27:18 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,16 @@ void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
 	}
 }
 
+void static	ft_join_rotates(t_moves *moves)
+{
+	while (moves->ra > 0 && moves->rb > 0)
+	{
+		moves->ra--;
+		moves->rb--;
+		moves->rr++;
+	}
+}
+
 /*
  * Given a serie of moves, execute it into both stacks
  * @params moves - To execute
@@ -73,6 +83,7 @@ void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
  */
 void	ft_execute_moves(t_node **stack_a, t_node **stack_b, t_moves *moves)
 {
+	ft_join_rotates(moves);
 	ft_exec_one_move_s(stack_a, &(moves->sa), ft_sa);
 	ft_exec_one_move_s(stack_b, &(moves->sb), ft_sb);
 	ft_exec_one_move_s(stack_a, &(moves->ra), ft_ra);
