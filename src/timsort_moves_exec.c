@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 14:29:15 by danalvar          #+#    #+#             */
-/*   Updated: 2025/05/31 16:27:18 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:30:38 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
 	}
 }
 
-void static	ft_join_rotates(t_moves *moves)
+static void	ft_join_rotates(t_moves *moves)
 {
 	while (moves->ra > 0 && moves->rb > 0)
 	{
