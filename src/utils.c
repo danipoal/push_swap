@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 14:09:16 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 14:33:11 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	ft_error(void)
@@ -18,8 +30,9 @@ void	ft_free_moves(t_moves *moves)
  */
 void	ft_free_split(char **array)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (array[i])
 	{
 		free(array[i]);
@@ -32,39 +45,38 @@ void	ft_free_split(char **array)
  * Checks if  stack is sorted
  * @returns 1 if sorted, 0 Not sorted
  */
-int ft_issort(t_node **stk, int sort_type)
+int	ft_issort(t_node **stk, int sort_type)
 {
-	t_node  *tmp;
+	t_node	*tmp;
 
 	if (!stk || !*stk)
 		return (1);
-
 	tmp = *stk;
 	while (tmp->next)
 	{
-		if (sort_type == ASC){
+		if (sort_type == ASC)
+		{
 			if (tmp->value > tmp->next->value)
 				return (0);
 		}
 		else if (sort_type == DESC)
-		{
 			if (tmp->value < tmp->next->value)
 				return (0);
-		}
-		tmp = tmp->next; 
+		tmp = tmp->next;
 	}
 	return (1);
 }
+
 /*
  * Finds the lowest/biggest number in a stack
  * Target is the current low/big number
  * @param type -> LOWEST/BIGGEST
  */
-t_node  *ft_find_node(t_node **stk, int type)
+t_node	*ft_find_node(t_node **stk, int type)
 {
-	t_node  *tmp;
-	t_node  *target;
-	
+	t_node	*tmp;
+	t_node	*target;
+
 	tmp = *stk;
 	target = tmp;
 	while (tmp->next)
@@ -77,7 +89,7 @@ t_node  *ft_find_node(t_node **stk, int type)
 		else if (type == BIG)
 		{
 			if (target->value < tmp->next->value)
-				target = tmp->next;			
+				target = tmp->next;
 		}
 		tmp = tmp->next;
 	}

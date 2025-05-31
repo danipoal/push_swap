@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 13:17:39 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 13:18:04 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	ft_count_binary_digits(int num)
@@ -15,7 +27,7 @@ int	ft_count_binary_digits(int num)
 	while ((unsigned int)n > 0)
 	{
 		count++;
-		n >>= 1; // Desplaza bits a la derecha (divide entre 2)
+		n >>= 1;
 	}
 	return (count + 1);
 }

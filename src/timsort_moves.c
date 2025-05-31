@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   timsort_moves.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 14:29:15 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 14:29:21 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*
  * Count the total number of moves indistinct
  * Used for comparing t_moves and get the best
  */
-int	ft_get_num_moves(t_moves *moves)	// TODO ERROR - Dont delete by reference
+int	ft_get_num_moves(t_moves *moves)
 {
 	t_moves	temp_moves;
 	int		n;
@@ -66,7 +78,8 @@ t_moves	*ft_newmoves(t_node *target)
  * Executes only one move for facilitate the execute moves global function
  * Used for ss, rr, rrr, pa, pb
  */
-void	ft_exec_one_move(t_node **stack_a, t_node **stack_b, int *moves, void (*f)(t_node**, t_node**))
+void	ft_exec_one_move(t_node **stack_a, t_node **stack_b,
+		int *moves, void (*f)(t_node**, t_node**))
 {
 	while (*moves > 0)
 	{
@@ -79,7 +92,7 @@ void	ft_exec_one_move(t_node **stack_a, t_node **stack_b, int *moves, void (*f)(
  * Same as the top function but for only one parameter into the function
  * Used for sa, sb, ra, rb, rra, rrb
  */
-void	ft_exec_one_move_s(t_node **stk, int *moves , void (*f)(t_node**))
+void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
 {
 	while (*moves > 0)
 	{

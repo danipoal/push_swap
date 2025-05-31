@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 19:36:02 by danalvar          #+#    #+#             */
-/*   Updated: 2025/03/19 17:15:03 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:27:22 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
  * Creates a new node that can be asigned at the top o a stack
  * 
  */
-
 t_node	*ft_create_node(int value, t_node *next)
 {
 	t_node	*new_node;
@@ -25,7 +24,7 @@ t_node	*ft_create_node(int value, t_node *next)
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
-	new_node->index = -1;// Timsort update
+	new_node->index = -1;
 	if (!next)
 		new_node->next = NULL;
 	else

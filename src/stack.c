@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 14:26:00 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 14:26:02 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*
@@ -45,6 +57,7 @@ int	ft_count_nodeposition(t_node **stk, t_node *node_to_search)
  * Initialize the a stack as a linked list
  * The function create_node() Asigns directly the next node if is started by
  *  the end of the list
+ *	Initialize the max value -1 because we start in 0
  */
 t_node	**init_stack(int *nbrs, int size)
 {
@@ -53,7 +66,7 @@ t_node	**init_stack(int *nbrs, int size)
 	stk = (t_node **) malloc(size * sizeof(t_node *));
 	if (!stk)
 		return (NULL);
-	size = size - 1; //Initialize the max value -1 because we start in 0
+	size = size - 1;
 	stk[size] = ft_create_node(nbrs[size], NULL);
 	if (!stk[size])
 		return (NULL);

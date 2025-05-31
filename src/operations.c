@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 13:58:01 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 13:58:49 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 /*
@@ -26,7 +38,6 @@ void	ft_swap(t_node **stk)
  * We get the node moved in tmp, and asign the new top its next
  * We move it assigning its new next to the top of new list
  * And finally asign the node as the new top
- * TODO No se si es correcto pero de momento si se queda vacio el stack, se pone en NULL que es ell next
  */
 void	ft_push(t_node **stk_pushed, t_node **stk_get)
 {

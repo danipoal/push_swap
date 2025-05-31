@@ -1,16 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   temp_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/31 13:40:06 by danalvar          #+#    #+#             */
+/*   Updated: 2025/05/31 13:40:09 by danalvar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void    ft_test_operations(t_node **stk)
+void	ft_test_operations(t_node **stk)
 {
-    t_node  **stack_b;
-    stack_b = ft_init_void_stack(4);
+	t_node	**stack_b;
 
-    //ft_reverse_rotate(stk);
-    ft_rra(stk);
-    //ft_pa(stk, stack_b);
-
-    ft_print_nodes(stk);
-    ft_stkclear(stack_b);
+	stack_b = ft_init_void_stack(4);
+	ft_rra(stk);
+	ft_print_nodes(stk);
+	ft_stkclear(stack_b);
 }
 
 /*
@@ -18,47 +27,47 @@ void    ft_test_operations(t_node **stk)
  * Usamos una copia del puntero para no editar 
  *  los punteros originales
  */
-
-void    ft_print_nodes(t_node **stk)
+void	ft_print_nodes(t_node **stk)
 {
-    t_node *temp = *stk;
+	t_node	*temp;
 
-    ft_putchar_fd('\n', 1);
-    while (temp)
-    {
-        ft_putnbr_fd(temp->value, 1);
-        ft_putstr_fd(" Index: ", 1);
-        ft_putnbr_fd(temp->index, 1);
-        ft_putchar_fd('\n', 1);
-        temp = temp->next;
-    }
-    ft_putchar_fd('\n', 1);
+	temp = *stk;
+	ft_putchar_fd('\n', 1);
+	while (temp)
+	{
+		ft_putnbr_fd(temp->value, 1);
+		ft_putstr_fd(" Index: ", 1);
+		ft_putnbr_fd(temp->index, 1);
+		ft_putchar_fd('\n', 1);
+		temp = temp->next;
+	}
+	ft_putchar_fd('\n', 1);
 }
 
-void    debugger(void) 
+void	debugger(void)
 {
-    return ;
+	return ;
 }
 
-void    ft_debug(t_node *target, int index)
+void	ft_debug(t_node *target, int index)
 {
-    if (target->index == index)
-        debugger();
+	if (target->index == index)
+		debugger();
 }
 /*
-    push test
+	push test
 void ft_test_operations(t_node **stk)
 {
-    t_node **new_stk;
+	t_node **new_stk;
 
-    new_stk = ft_init_void_stack(2);
+	new_stk = ft_init_void_stack(2);
 
-    // From stk to new stk
-    ft_push(new_stk, stk);
-    ft_push(new_stk, stk);
-    ft_print_nodes(new_stk);
-    ft_push(stk, new_stk);
-    ft_push(stk, new_stk);
-    ft_stkclear(new_stk);
+	// From stk to new stk
+	ft_push(new_stk, stk);
+	ft_push(new_stk, stk);
+	ft_print_nodes(new_stk);
+	ft_push(stk, new_stk);
+	ft_push(stk, new_stk);
+	ft_stkclear(new_stk);
 }
 */
