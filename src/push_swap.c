@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 19:36:02 by danalvar          #+#    #+#             */
-/*   Updated: 2025/05/31 14:32:12 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:15:50 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_check_input(int *numbers, int size)
 	}
 }
 
-int	*ft_handle_args(int	argc, char **argv, int *size)
+int	*ft_handle_args(int argc, char **argv, int *size)
 {
 	char	**split_numbers;
 	int		*n;
@@ -58,6 +58,7 @@ int	*ft_handle_args(int	argc, char **argv, int *size)
 	}
 	return (NULL);
 }
+
 /*
  * Function to handle the inputs
  * 

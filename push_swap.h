@@ -6,7 +6,7 @@
 /*   By: danalvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:04:10 by danalvar          #+#    #+#             */
-/*   Updated: 2025/05/31 15:25:15 by danalvar         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:18:24 by danalvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ typedef struct s_moves
 // Input handleing
 int		*ft_atoi_array(char **av, int ac, int type);
 void	ft_free_split(char **array);
-int		*ft_handle_args(int	argc, char **argv, int *size);
-
+int		*ft_handle_args(int argc, char **argv, int *size);
 
 // Utils
 int		ft_issort(t_node **stk, int sort_type);
