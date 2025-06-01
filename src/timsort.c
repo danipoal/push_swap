@@ -12,6 +12,31 @@
 
 #include "../push_swap.h"
 
+/**
+ * Once we know if its a Max/Min number or a regular, needs to choose if
+ * It is better the rotates or the reverse rotates
+ * @var target - The node that has to be pushed
+ * @var closest -	The closest node
+ */
+t_moves	*ft_choose_direction(t_node **stack_a, t_node **stack_b,
+				t_moves *moves, t_node *closest)
+{
+	t_moves	*reverse_moves;
+	int		rr_a;
+	int		rr_b;
+
+	reverse_moves = ft_newmoves(moves->target);
+	rr_a = ft_stack_size(stack_a)
+		- ft_count_nodeposition(stack_a, moves->target);
+	rr_b = ft_stack_size(stack_b) - ft_count_nodeposition(stack_b, closest);
+	reverse_moves->rra = rr_a;
+	reverse_moves->rrb = rr_b;
+	if (ft_get_num_moves(moves) > ft_get_num_moves(reverse_moves))
+		*moves = *reverse_moves;
+	ft_free_moves(reverse_moves);
+	return (moves);
+}
+
 /*
  *  Calculates the moves that each node needs to be positioned correctly
  * @var target - The node that has to be pushed
@@ -43,6 +68,7 @@ t_moves	*ft_calculate_moves(t_node **stack_a, t_node **stack_b, t_node *target)
 	moves->ra = ft_count_nodeposition(stack_a, target);
 	moves->rb = count;
 	moves->pb = 1;
+	moves = ft_choose_direction(stack_a, stack_b, moves, tmp);
 	return (moves);
 }
 

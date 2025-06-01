@@ -14,12 +14,12 @@
 
 /*
  * Gets the size of the stack
- *
+ */
 
 int	ft_stack_size(t_node **stk)
 {
-	int	i;
-	t_node *tmp;
+	int		i;
+	t_node	*tmp;
 
 	tmp = *stk;
 	i = 0;
@@ -29,7 +29,7 @@ int	ft_stack_size(t_node **stk)
 		i++;
 	}
 	return (i);
-} */
+}
 
 /*
  * Counts and get the position of a node into a stack

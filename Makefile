@@ -37,7 +37,7 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(LIBFT) Makefile
 	@echo "[*] Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft > /dev/null
+	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME) > /dev/null
 	@echo "[✓] Compilation of $(NAME) completed."
 
 clean: 

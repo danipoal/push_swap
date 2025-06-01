@@ -70,7 +70,7 @@ t_node	**init_stack(int *nbrs, int size);
 t_node	**ft_init_void_stack(int size);
 void	ft_stkclear(t_node **lst);
 int		ft_count_nodeposition(t_node **stk, t_node *node_to_search);
-// int	ft_stack_size(t_node **stk);
+int		ft_stack_size(t_node **stk);
 
 // Operations plain
 void	ft_swap(t_node **stk);

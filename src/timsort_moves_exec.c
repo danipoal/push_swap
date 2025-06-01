@@ -65,7 +65,6 @@ void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
 	}
 }
 
-
 /*
  * Given a serie of moves, execute it into both stacks
  * @params moves - To execute

@@ -52,6 +52,12 @@ static void	ft_join_rotates(t_moves *moves)
 		moves->rb--;
 		moves->rr++;
 	}
+	while (moves->rra > 0 && moves->rrb > 0)
+	{
+		moves->rra--;
+		moves->rrb--;
+		moves->rrr++;
+	}
 }
 
 /*
