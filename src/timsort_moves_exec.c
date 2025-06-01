@@ -65,15 +65,6 @@ void	ft_exec_one_move_s(t_node **stk, int *moves, void (*f)(t_node **))
 	}
 }
 
-static void	ft_join_rotates(t_moves *moves)
-{
-	while (moves->ra > 0 && moves->rb > 0)
-	{
-		moves->ra--;
-		moves->rb--;
-		moves->rr++;
-	}
-}
 
 /*
  * Given a serie of moves, execute it into both stacks
@@ -83,7 +74,6 @@ static void	ft_join_rotates(t_moves *moves)
  */
 void	ft_execute_moves(t_node **stack_a, t_node **stack_b, t_moves *moves)
 {
-	ft_join_rotates(moves);
 	ft_exec_one_move_s(stack_a, &(moves->sa), ft_sa);
 	ft_exec_one_move_s(stack_b, &(moves->sb), ft_sb);
 	ft_exec_one_move_s(stack_a, &(moves->ra), ft_ra);

@@ -44,6 +44,16 @@ static int	*ft_get_moves_rotates(t_moves *temp_moves, int *n)
 	return (n);
 }
 
+static void	ft_join_rotates(t_moves *moves)
+{
+	while (moves->ra > 0 && moves->rb > 0)
+	{
+		moves->ra--;
+		moves->rb--;
+		moves->rr++;
+	}
+}
+
 /*
  * Count the total number of moves indistinct
  * Used for comparing t_moves and get the best
@@ -53,6 +63,7 @@ int	ft_get_num_moves(t_moves *moves)
 	t_moves	temp_moves;
 	int		n;
 
+	ft_join_rotates(moves);
 	temp_moves = *moves;
 	n = 0;
 	ft_get_moves_pushswaps(&temp_moves, &n);
