@@ -61,9 +61,9 @@ t_node	*ft_create_node(int value, t_node *next);
 
 t_node	*ft_nodeprelast(t_node *node);
 t_node	*ft_nodelast(t_node *node);
-void	ft_print_nodes(t_node **stk);
-void	debugger(void);
-void	ft_debug(t_node *target, int index);
+// void	ft_print_nodes(t_node **stk);
+// void	debugger(void);
+// void	ft_debug(t_node *target, int index);
 
 // Stack
 t_node	**init_stack(int *nbrs, int size);
@@ -91,15 +91,15 @@ void	ft_rra(t_node **stack_a);
 void	ft_rrb(t_node **stack_b);
 void	ft_rrr(t_node **stack_a, t_node **stack_b);
 
-void	ft_test_operations(t_node **stk);
+// void	ft_test_operations(t_node **stk);
 
 // Short cases
 void	ft_short_cases(t_node **stk, int size);
 
 // Radix
-void	ft_radix(t_node **stack_a, int size);
-int		ft_count_binary_digits(int n);
-void	ft_putnbr_base(long nb, char *base);
+// void	ft_radix(t_node **stack_a, int size);
+// int		ft_count_binary_digits(int n);
+// void	ft_putnbr_base(long nb, char *base);
 
 // Timsort & utils
 void	ft_timsort(t_node **stack_a, int size);
