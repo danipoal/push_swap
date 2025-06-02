@@ -55,7 +55,7 @@ jobs:
           num_args=$(wc -w <<< "$args")
 
           # Ejecutamos el programa y capturamos la salida
-          output=$(./push_swap.out $args)
+          output=$(./push_swap $args)
           code=$?
 
           num_lines=$(wc -l <<< "$output")

@@ -18,6 +18,14 @@ static void	ft_error_atoi(void)
 	exit(1);
 }
 
+static void	ft_check_limits(int sign, long long total)
+{
+	if (sign == 1 && total > INT_MAX)
+		ft_error_atoi();
+	if (sign == -1 && - total < INT_MIN)
+		ft_error_atoi();
+}
+
 /*
  * Converts a string to an integer. Converts the initial portion of the string 
  * pointed to by nptr to int.
@@ -29,9 +37,9 @@ static void	ft_error_atoi(void)
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	total;
-	int	sign;
+	int				i;
+	long long		total;
+	int				sign;
 
 	while (*nptr == ' ' || *nptr == '\f' || *nptr == '\n' || *nptr == '\r'
 		|| *nptr == '\t' || *nptr == '\v')
@@ -50,6 +58,7 @@ int	ft_atoi(const char *nptr)
 		if (!ft_isdigit(nptr[i]))
 			ft_error_atoi();
 		total = total * 10 + nptr[i] - '0';
+		ft_check_limits(sign, total);
 		i++;
 	}
 	return (total * sign);

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Project name
-NAME = push_swap.out
+NAME = push_swap
 
 # Compiling rules
 CC = cc
